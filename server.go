@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"google.golang.org/api/option"
@@ -33,7 +34,7 @@ func getRooms(c *gin.Context) {
 		log.Fatalf("Unable to retrieve Sheets client: %v", err)
 	}
 
-	spreadsheetId := "1eivXSkSQs37JfPOQ6YME2piD71XxbW73mq5fdKhkwM4"
+	spreadsheetId := os.Getenv("SPREADSHEET_ID")
 	readRange := "Rooms!A2:K"
 
 	resp, err := srv.Spreadsheets.Values.Get(spreadsheetId, readRange).Do()
