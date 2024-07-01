@@ -24,7 +24,7 @@ func main() {
 
 	r.GET("/rooms", getRooms)
 
-	r.Run(os.Getenv("PORT"))
+	r.Run(":"+os.Getenv("PORT"))
 }
 
 func getRooms(c *gin.Context) {
