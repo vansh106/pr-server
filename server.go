@@ -24,7 +24,7 @@ func main() {
 
 	r.GET("/rooms", getRooms)
 
-	r.Run(":8080")
+	r.Run(os.Getenv("PORT"))
 }
 
 func getRooms(c *gin.Context) {
@@ -34,7 +34,7 @@ func getRooms(c *gin.Context) {
 		log.Fatalf("Unable to retrieve Sheets client: %v", err)
 	}
 
-	spreadsheetId := os.Getenv("SPREADSHEET_ID")
+	spreadsheetId := "1eivXSkSQs37JfPOQ6YME2piD71XxbW73mq5fdKhkwM4"
 	readRange := "Rooms!A2:K"
 
 	resp, err := srv.Spreadsheets.Values.Get(spreadsheetId, readRange).Do()
