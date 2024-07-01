@@ -35,6 +35,7 @@ func getRooms(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error   sheet": err})
 
 	}
+	fmt.Println("here")
 
 	spreadsheetId := "1eivXSkSQs37JfPOQ6YME2piD71XxbW73mq5fdKhkwM4"
 	readRange := "Rooms!A2:K"
