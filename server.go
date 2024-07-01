@@ -31,7 +31,9 @@ func getRooms(c *gin.Context) {
 	ctx := context.Background()
 	srv, err := sheets.NewService(ctx, option.WithCredentialsFile("./creds2.json"))
 	if err != nil {
-		log.Fatalf("Unable to retrieve Sheets client: %v", err)
+		fmt.Println("Unable to retrieve Sheets client: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error   sheet": err})
+
 	}
 
 	spreadsheetId := "1eivXSkSQs37JfPOQ6YME2piD71XxbW73mq5fdKhkwM4"
