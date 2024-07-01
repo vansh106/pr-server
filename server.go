@@ -39,7 +39,7 @@ func getRooms(c *gin.Context) {
 
 	resp, err := srv.Spreadsheets.Values.Get(spreadsheetId, readRange).Do()
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to retrieve data from sheet"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error retrieving from sheet": err})
 		return
 	}
 
