@@ -86,7 +86,7 @@ func matchesFilters(row []interface{}, c *gin.Context) bool {
 		"Gender":           8,
 		"Availablity":      9,
 	}
-
+	
 	for param, index := range filters {
 		if value := c.Query(param); value != "" {
 			if param == "Allowed" {
